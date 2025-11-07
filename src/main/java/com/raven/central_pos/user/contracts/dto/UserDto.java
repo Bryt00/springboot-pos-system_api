@@ -10,11 +10,14 @@ import java.time.LocalDateTime;
 public class UserDto {
     @Id
     private Long Id;
+
     private String fullName;
     private String email;
     private String password;
     private String phone;
     private UserRole role;
+    private Long storeId;
+    private Long branchId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime lastLoginAt;

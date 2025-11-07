@@ -5,7 +5,6 @@ import com.raven.central_pos.category.services.ICategoryService;
 import com.raven.central_pos.core.api_response.ApiResponse;
 import com.raven.central_pos.user.services.IUserService;
 import lombok.RequiredArgsConstructor;
-import okhttp3.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +27,7 @@ public class CategoryController {
 
     @GetMapping("/store/{storeId}")
     public ResponseEntity<List<CategoryDto>> getCategoriesByStoreId(
-            @PathVariable Long storeId) throws Exception {
+            @PathVariable Long storeId) {
 
         return ResponseEntity.ok(_categoryService.getCategoriesByStore(storeId));
     }

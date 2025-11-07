@@ -14,6 +14,7 @@ public class ProductMapper {
                 .id(product.getId())
                 .category(CategoryMapper.toDto(product.getCategory()))
                 .storeId(product.getStore()!=null? product.getStore().getId():null)
+                .categoryId(product.getCategory()!=null? product.getCategory().getId():null)
                 .name(product.getName())
                 .brand(product.getBrand())
                 .color(product.getColor())
@@ -35,7 +36,7 @@ public class ProductMapper {
                 .color(productDto.getColor())
                 .store(store)
                 .category(category)
-
+                .imageUrl(productDto.getImageUrl())
                 .description(productDto.getDescription())
                 .sku(productDto.getSku())
                 .mrp(productDto.getMrp())

@@ -1,5 +1,6 @@
 package com.raven.central_pos.user.model;
 
+import com.raven.central_pos.branch.model.Branch;
 import com.raven.central_pos.store.model.Store;
 import com.raven.central_pos.user.domain.UserRole;
 import jakarta.persistence.*;
@@ -31,6 +32,9 @@ public class User {
 
     @ManyToOne
     private Store store;
+
+    @ManyToOne
+    private Branch branch;
 
     @Column(nullable=false)
     private UserRole role;

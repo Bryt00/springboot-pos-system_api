@@ -2,6 +2,7 @@ package com.raven.central_pos.branch.mapper;
 
 import com.raven.central_pos.branch.contracts.BranchDto;
 import com.raven.central_pos.branch.model.Branch;
+import com.raven.central_pos.store.mappers.StoreMapper;
 import com.raven.central_pos.store.model.Store;
 import com.raven.central_pos.user.model.User;
 
@@ -16,6 +17,7 @@ public class BranchMapper {
                 .address(branch.getAddress())
                 .phone(branch.getPhone())
                 .storeId(branch.getStore()!=null?branch.getStore().getId():null)
+                .store(StoreMapper.toDto(branch.getStore()))
                 .workingDays(branch.getWorkingDays())
                 .openTime(branch.getOpenTime())
                 .closeTime(branch.getCloseTime())
@@ -24,7 +26,7 @@ public class BranchMapper {
                 .build();
     }
 
-    public static Branch toEntity(BranchDto branchDto, Store store, User branchManager){
+    public static Branch toEntity(BranchDto branchDto, Store store){
         return Branch.builder()
                 .name(branchDto.getName())
                 .address(branchDto.getAddress())
@@ -36,7 +38,7 @@ public class BranchMapper {
                 .openTime(branchDto.getOpenTime())
                 .closeTime(branchDto.getCloseTime())
                 .createdAt(LocalDateTime.now())
-                .updatedAt(LocalDateTime.now())
+                //.updatedAt(LocalDateTime.now())
 
                 .build();
     }

@@ -13,6 +13,8 @@ import com.raven.central_pos.user.services.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,6 +60,7 @@ public class StoreServiceImpl implements IStoreService {
    }
         existingStore.setStoreName(storeDto.getStoreName());
         existingStore.setDescription(storeDto.getDescription());
+        existingStore.setUpdatedAt(LocalDateTime.now());
 
         if (storeDto.getStoreType()!=null){
             existingStore.setStoreType(storeDto.getStoreType());
